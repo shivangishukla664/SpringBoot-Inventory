@@ -46,7 +46,7 @@ rel="stylesheet">
             <tr>
                 <th>Customer ID</th>
                 <th>Name</th>
-                <th>Password</th>
+              
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
@@ -69,7 +69,7 @@ rel="stylesheet">
             <tr>
                 <td>${customer.cust_id}</td>
                 <td>${customer.name}</td>
-                <td>${customer.password}</td>
+               
                 <td>${customer.email}</td>
                 <td>${customer.phone}</td>
                 <td>${customer.address}</td>

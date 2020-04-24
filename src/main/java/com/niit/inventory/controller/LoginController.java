@@ -62,15 +62,17 @@ public class LoginController {
 			 
 			 return mav;
 		 }
-	
+		 
 		 if(d==null) {
 			 mav= new ModelAndView("login");
 				mav.addObject("error", "User Doesn't Exists");
 		 }
-		 else  if(email.equals(d.getEmail()) && pass2.equals(d.getPassword()))
+		 
+		 else  if(email.equals(d.getEmail()) && pass.equals(d.getPassword()))
 		 {
 					 
-		 req.getSession().setAttribute("user", d);	
+		 req.getSession().setAttribute("user", d);
+		 req.getSession().setAttribute("userId", d.getEmail());
 		 
 		  mav = new ModelAndView("welcome-customer-home");
 		 mav.addObject("welcome-customer-home", d.getName());

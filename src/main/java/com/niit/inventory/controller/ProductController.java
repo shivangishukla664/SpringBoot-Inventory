@@ -2,6 +2,8 @@ package com.niit.inventory.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.inventory.model.Customer;
+import com.niit.inventory.model.Order1;
 import com.niit.inventory.model.Product;
 import com.niit.inventory.services.CustomerService;
 import com.niit.inventory.services.ProductService;
@@ -51,7 +54,14 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
-	public String saveProduct(@ModelAttribute("product") Product product) {
+	public String saveProduct(HttpServletRequest request,@ModelAttribute("product") Product product) {
+		
+		/*Order1 order1=new Order1();
+		
+		Float quantity=Float.parseFloat(request.getParameter("quantity"));
+		product.setQuantity(quantity-order1.getQuantity());
+		productService.save(product);*/
+		
 	service.save(product);
 
 	return "redirect:products";

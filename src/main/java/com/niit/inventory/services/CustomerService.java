@@ -45,5 +45,14 @@ public class CustomerService {
 	public void delete(int cust_id)
 	{
 		repo.deleteById(cust_id);
+
 	}
+	
+	
+	public Customer findById(int cust_id)
+	{
+		return repo.findById(cust_id).get();
+	}
+
+		
 }

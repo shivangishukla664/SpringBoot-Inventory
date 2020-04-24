@@ -2,11 +2,14 @@ package com.niit.inventory.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.swing.text.DefaultEditorKit.CutAction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,6 +81,45 @@ public class CustomerController {
 
 	return mav;
 	}
+	
+	@GetMapping("/showProfileForm")
+	public ModelAndView showProfileForm(HttpServletRequest request) {
+		ModelAndView model=new ModelAndView("customer-profile");
+		Customer cust=service.findByEmail(request.getSession().getAttribute("userId").toString());
+		model.addObject("customer", cust);
+		System.out.println("name: "+cust.getName());
+		return model;
+		
+	}
+	
+
+	@RequestMapping(value = "/saveprofile", method = RequestMethod.POST)
+	public ModelAndView CustomerProfile(HttpServletRequest request,@ModelAttribute("customer") Customer customer) {
+		ModelAndView model=null;
+		
+		Customer customerId=service.findById(customer.getCust_id());
+		Customer activeUser=(Customer)request.getSession().getAttribute("user");
+		Customer customer1=service.get(activeUser.getCust_id());
+		
+		String n=request.getParameter("name");
+		String p=request.getParameter("password");
+		String e=request.getParameter("email");
+		String phn=request.getParameter("phone");
+		String adrs=request.getParameter("address");
+	
+		customer.setName(n);
+		System.out.println("password: " +p);
+		customer.setPassword(p);
+		customer.setEmail(e);
+		customer.setPhone(phn);
+		customer.setAddress(adrs);
+	
+		
+		service.save(customer);
+		model=new ModelAndView("welcome-customer-home");
+	    return model;
+	}
+	
 	
 	
 	

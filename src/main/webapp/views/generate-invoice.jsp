@@ -154,17 +154,17 @@ rel="stylesheet">
 				
 						<div class="form-group"><br>
 							<!-- Button -->
-							<div class="col-xs-12 col-lg-12 ">
+							<div class="col-xs-12 col-lg-12 "><br>
 								<form:button Class="btn btn-success btn-block">Generate Bill</form:button>
 							</div><br><br>
-						</div>
+						</div><br>
 <br>
 
 
 					</form:form>
 				
 			
-		</div><br>
+		<br></div><br>
 	</div>
 	
 	<div class="col-lg-3"></div>

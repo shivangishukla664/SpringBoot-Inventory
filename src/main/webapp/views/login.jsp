@@ -26,7 +26,7 @@ rel="stylesheet">
 
 <div id="login">
   
-  <h1>Customer Log in</h1>
+  <h1>Log in</h1>
  <form:form id="loginform" action="loginCustomer" method="post" modelAttribute="customer">
     <input type="text" placeholder="Email" name="email"/>
     <input type="password" placeholder="Password" name="password" />

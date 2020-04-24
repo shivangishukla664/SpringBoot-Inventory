@@ -82,7 +82,10 @@ public class OrderController {
 		Float quantity=Float.parseFloat(request.getParameter("quantity"));
 		order1.setQuantity(quantity);
 		order1.setPrice(quantity*product.getPrice()+"");
-
+		
+	/*	product.setQuantity(product.getQuantity()-order1.getQuantity());
+		productService.save(product);*/
+		
 		service.save(order1);
 		
 

@@ -31,9 +31,18 @@ public class ProductService {
 		return repo.findById(id).get();
 	}
 	
+	
+	
 	public void delete(long id)
 	{
 		repo.deleteById(id);
 	}
+
+	public Object findById(long id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id).get();
+	}
+
+	
 
 }

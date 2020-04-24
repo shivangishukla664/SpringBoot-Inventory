@@ -20,11 +20,10 @@ rel="stylesheet">
 <body background="<c:url value="/resources/static/images/pic3.jpg"/>"/>
 <div class="topnav">
 
-  <a  href="#home">Profile</a>
+   <a  href="showProfileForm">Profile</a>
   <a href="/view_customer_product">View Products Details</a>
   
-  <a href="#contact">Invoice Details</a>
-
+  <a href="/showInvoiceForm">Invoice Details</a>s
   
      <div class="topnav-right">
     	 
